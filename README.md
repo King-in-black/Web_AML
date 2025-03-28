@@ -34,7 +34,7 @@ The final deliverables include:
 
 ---
 ## Illustrations
-Our team builds a wonderful wireless communication system based on ESP32 and .
+Our team builds a wonderful wireless communication system based on ESP32 and IMUs .
 
 ![Demo Image](images/circuit_image.png)
 ![Another Image](images/img.png)
@@ -72,14 +72,23 @@ ESP32 reciever:
 3D design cover
 - [box cover V3.0.SLDPRT](code%2Fbox%20cover%20V3.0.SLDPRT)
 ### Software:
+train data recorder:
+
+- [training_data_collection.py](code%2Ftraining_data_collection.py)
+
+test data recorder:
+
+- [test_dataset_collection.py](code%2Ftest_dataset_collection.py)
+
 Python listener and data recorder:
+
 - [python_listener.py](code%2Fpython_listener.py)
 
-Preprocess
+Preprocess:
 
 - [preprocess.py](code%2Fpreprocess.py)
 
-Load the preprocessed dataset
+Load the preprocessed dataset:
 - [Data_loader.py](code%2FData_loader.py)
 
 Model inference code:
@@ -92,6 +101,9 @@ Training code:
 Model weight:
 - [bilstm_model.pth](code%2Fbilstm_model.pth)
 
+Live prediction(for demo):
+
+- [predict.py](code%2Fpredict.py)
 
 ---
 
