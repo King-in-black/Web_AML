@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligent Referee System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🤺 Intelligent Referee System</h1>
+  </header>
+  <main class="container">
+    <section class="card">
+      <h2>Overview</h2>
+      <p>The development of artificial intelligence (AI) has made it possible to address previously intractable challenges in modern sports competitions. In fencing, points are awarded when a player strikes their opponent with a sabre. However, determining which fencer scores becomes difficult when both land touches simultaneously, as the decision relies on the rule of right of way. These events occur within milliseconds, making it nearly impossible for the human eye to capture the precise moment.</p>
+      <p>To address this challenge, we designed and implemented an intelligent fencing system capable of accurately determining the right of way. The system collects acceleration data from four joints—the left and right elbows and ankles—using inertial measurement units (IMUs), and transmits this data via an ESP32-based wireless communication network.</p>
+      <p>We constructed a dataset of 400 motion samples—covering attacks, forward movements, backward movements, and stops—collected from all team members to ensure diversity. The system consists of two main components: a front-end neural network based on Graph Attention Networks combined with 2 bidirectional LSTM layers for motion recognition, and a back-end state machine that determines the correct right of way based on official fencing rules. The front-end network classifies four distinct movements within 10 milliseconds, achieving an average accuracy of 93.4%.</p>
+    </section>
+
+    <section class="card">
+      <h2>Illustrations</h2>
+      <p>Our team built a wireless communication system based on ESP32:</p>
+      <img src="images/circuit_image.png" alt="Circuit Image">
+      <img src="images/img.png" alt="Fencing Demo Image">
+    </section>
+
+    <section class="card">
+      <h2>Dataset Files</h2>
+      <p>We provide multiple CSV files for different motions and conditions. You can download them below:</p>
+      <ul>
+        <li><a href="data/any-backward.csv">any-backward.csv</a></li>
+        <li><a href="data/any-forward.csv">any-forward.csv</a></li>
+        <li><a href="data/100_attack.csv">100_attack.csv</a></li>
+        <li><a href="data/100_attack_processed.csv">100_attack_processed.csv</a></li>
+        <li><a href="data/100_backward.csv">100_backward.csv</a></li>
+        <li><a href="data/100_backward_processed.csv">100_backward_processed.csv</a></li>
+        <li><a href="data/100_forward.csv">100_forward.csv</a></li>
+        <li><a href="data/100_forward_processed.csv">100_forward_processed.csv</a></li>
+        <li><a href="data/100_stop.csv">100_stop.csv</a></li>
+        <li><a href="data/stop.csv">stop.csv</a></li>
+        <li><a href="data/100_stop_processed.csv">100_stop_processed.csv</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Code and Design Files</h2>
+      <h3>Hardware</h3>
+      <ul>
+        <li><a href="code/sender_final/sender_final.ino">ESP32 sender</a></li>
+        <li><a href="code/receiver_final/receiver_final.ino">ESP32 receiver</a></li>
+        <li><a href="code/AMLLABBOX%20whole%20version%20final.SLDPRT">3D box design</a></li>
+        <li><a href="code/box%20cover%20V3.0.SLDPRT">3D box cover</a></li>
+      </ul>
+      <h3>Software</h3>
+      <ul>
+        <li><a href="code/training_data_collection.py">Training data recorder</a></li>
+        <li><a href="code/test_dataset_collection.py">Test data recorder</a></li>
+        <li><a href="code/python_listener.py">Python listener</a></li>
+        <li><a href="code/preprocess.py">Preprocessing script</a></li>
+        <li><a href="code/Data_loader.py">Dataset loader</a></li>
+        <li><a href="code/inference.py">Model inference</a></li>
+        <li><a href="code/LSTM.py">Training (LSTM)</a></li>
+        <li><a href="code/bilstm_model.pth">Model weights</a></li>
+        <li><a href="code/predict.py">Live prediction demo</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Slides and Video</h2>
+      <ul>
+        <li><a href="AFK_final_2025_03_21.pptx">📄 Presentation Slides</a></li>
+        <li><a href="AFK_video.mp4">▶️ Video Demo</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
